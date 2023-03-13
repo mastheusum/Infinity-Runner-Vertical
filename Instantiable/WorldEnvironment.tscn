@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Script/WorldEnv.gd" type="Script" id=1]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+background_energy = 2.0
+ambient_light_energy = 2.0
+glow_enabled = true
+glow_intensity = 0.2
+glow_blend_mode = 0
+glow_hdr_threshold = 0.4
+glow_hdr_scale = 0.0
+adjustment_enabled = true
+adjustment_saturation = 1.2
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource( 1 )
+script = ExtResource( 1 )

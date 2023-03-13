@@ -5,72 +5,48 @@ const FILE_NAME = "user://higscores.save"
 var config = ConfigFile.new()
 var err = config.load(FILE_NAME)
 
+var new_player = false
 var player = {
 	"name" : "",
 	"score" : 0
 }
 
-func _ready():
-	get_child(1).text = player["name"] + "    " + str(player["score"])
-	var rank = generate_rank()
-	print_rank(rank)
-	print(rank)
-	save(rank)
+class CustomSorter:
+	static func sort_descending(a, b):
+		return int(a[1]) > int(b[1])
 
-func save(data):
-	for i in range(len(data[0])):
-		config.set_value("highscores", data[0][i], data[1][i])
+func _ready():
+	$CurrentPlayer.modulate = WorldEnv.player_color as Color
+	$CurrentPlayer.bbcode_text = "[center]" + player["name"] + "    " + str(player["score"])
+	$Scores.bbcode_text = "[center]"
+	var rank = Array()
+	var rank_fields = read()
+	for key in rank_fields:
+		rank.append([key, rank_fields[key]])
+	print_rank(rank)
+
+func save(data : Array):
+	for field in data:
+		config.set_value("highscores", field[0], field[1])
 	config.save(FILE_NAME)
 	
-func read():
-	var result = []
-	var values = []
-	var keys = []
+func read() -> Dictionary:
+	var result = Dictionary()
 	
-	for i in config.get_section_keys("highscores"):
-		keys.append(i)
-	
-	if len(keys) > 0:
-		for i in keys:
-			values.append( config.get_value("highscores", i) )
-	
-	result.append(keys)
-	result.append(values)
+	for key in config.get_section_keys("highscores"):
+		result[key] = config.get_value("highscores", key)
 	
 	return result
-	
-func generate_rank():
-	var current_rank = read()
-	if len(current_rank[0]) > 0:
-		current_rank = bubble_sort_duplo(current_rank)
-		for i in range(len(current_rank[1])):
-			if current_rank[1][i] < player["score"]:
-				current_rank[0].insert(i, player["name"])
-				current_rank[1].insert(i, player["score"])
-				
-		if len(current_rank[1]) > 10:
-			current_rank[0].pop_back()
-			current_rank[1].pop_back()
-	else:
-		current_rank[0].append(player["name"])
-		current_rank[1].append(player["score"])
-			
-	return current_rank
 
-func print_rank(rank):
-	for i in range(len(rank[0])):
-		self.get_child(3).text += rank[0][i] + " " + str(rank[1][i]) + "\n"
-		
-func bubble_sort_duplo(array):
-	var tmp
-	for i in range(len(array[0])):
-		for j in range(i):
-			if array[1][j] < array[1][i]:
-				tmp = array[0][j]
-				array[0][j] = array[0][i]
-				array[0][i] = tmp
-				
-				tmp = array[1][j]
-				array[1][j] = array[1][i]
-				array[1][i] = tmp
-	return array
+func print_rank(rank : Array):
+	var custom_rank = rank.duplicate()
+	rank.append([player['name'], player["score"]])
+	custom_rank.append(["[color="+ (WorldEnv.player_color as Color).to_html() +"]"+player['name'], str(player["score"]) + "[/color]"])
+	
+	rank.sort_custom(CustomSorter, "sort_descending")
+	custom_rank.sort_custom(CustomSorter, "sort_descending")
+	for i in range(len(custom_rank)):
+		$Scores.bbcode_text += custom_rank[i][0] + ": " + str(custom_rank[i][1]) + "\n"
+	if new_player:
+		save(rank)
+

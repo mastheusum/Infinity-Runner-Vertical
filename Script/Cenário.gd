@@ -7,13 +7,14 @@ var triangulo = preload("res://Instantiable/triangulo.tscn")
 var dificuldade = 0.5
 var pointsToNextLevel = 10
 
+
 func _process(delta):
-	if self.get_child(2).points == pointsToNextLevel:
+	if $Player.points == pointsToNextLevel:
 		dificuldade -= (dificuldade / 10)
-		self.get_child(3).wait_time -= (get_child(3).wait_time / 10)
+		$"Spawn Blocos".wait_time -= ($"Spawn Blocos".wait_time / 10)
 		pointsToNextLevel += (pointsToNextLevel + 10)
 	
-	self.get_child(1).get_child(0).text = "Points: " + str(self.get_child(2).points)
+	$GUI/Label.bbcode_text = "[center]Points: " + str($Player.points)
 	
 	
 func _on_Spawn_Blocos_timeout():

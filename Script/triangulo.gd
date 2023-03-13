@@ -9,6 +9,8 @@ var direction = Vector2(0,0)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player_name = WorldEnv.player_name
+	self.modulate = WorldEnv.player_color
 	self.gravity_scale = 0
 	self.weight = 2
 

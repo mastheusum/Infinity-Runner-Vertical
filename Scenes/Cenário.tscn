@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Instantiable/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Script/Cenário.gd" type="Script" id=2]
 [ext_resource path="res://Instantiable/triangulo.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fonts/ShareTechMono-Regular.ttf" type="DynamicFontData" id=4]
+
+[sub_resource type="DynamicFont" id=6]
+size = 40
+font_data = ExtResource( 4 )
 
 [node name="Cenário" type="Node2D"]
 script = ExtResource( 2 )
@@ -12,16 +17,13 @@ script = ExtResource( 2 )
 [node name="GUI" type="MarginContainer" parent="."]
 margin_right = 500.0
 margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="Label" type="Label" parent="GUI"]
-margin_top = 13.0
+[node name="Label" type="RichTextLabel" parent="GUI"]
 margin_right = 500.0
-margin_bottom = 27.0
-text = "asdasd"
-align = 1
+margin_bottom = 40.0
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center]"
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 265.036, 578.096 )
@@ -32,5 +34,6 @@ autostart = true
 
 [node name="TimeCount" type="Timer" parent="."]
 autostart = true
+
 [connection signal="timeout" from="Spawn Blocos" to="." method="_on_Spawn_Blocos_timeout"]
 [connection signal="timeout" from="TimeCount" to="Player" method="_on_TimeCount_timeout"]
