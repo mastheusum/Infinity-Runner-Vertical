@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Captura de tela de 2023-03-13 10-14-20.png-73f96136f9cb53dd200d165622235b6a.stex"
+path="res://.import/Captura de tela de 2023-03-13 10-45-42.png-8945fdcd8b82f85a51a8ee1dd7ea0894.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Screenshots/Captura de tela de 2023-03-13 10-14-20.png"
-dest_files=[ "res://.import/Captura de tela de 2023-03-13 10-14-20.png-73f96136f9cb53dd200d165622235b6a.stex" ]
+source_file="res://Screenshots/Captura de tela de 2023-03-13 10-45-42.png"
+dest_files=[ "res://.import/Captura de tela de 2023-03-13 10-45-42.png-8945fdcd8b82f85a51a8ee1dd7ea0894.stex" ]
 
 [params]
 
