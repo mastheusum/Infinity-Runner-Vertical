@@ -13,7 +13,7 @@ Font used: [Share Tech Mono](http://https://fonts.google.com/specimen/Share+Tech
 
 Screenshots:
 ##### Menu
-[![Menu](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/Menu.png "Menu")](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/Menu.png "Menu")
+[![Menu](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/Menu2.png "Menu")](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/Menu2.png "Menu")
 
 ##### Highscores Scene
 [![Highscore Scene](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/HighscoresScene.png "Highscore Scene")](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/HighscoresScene.png "Highscore Scene")
