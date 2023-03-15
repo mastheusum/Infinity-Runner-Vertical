@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Instantiable/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Script/EndGame.gd" type="Script" id=2]
 [ext_resource path="res://Fonts/ShareTechMono-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Sounds/Freebooter of SPLORR!! Victory Theme.ogg" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=2]
 size = 32
@@ -40,6 +41,7 @@ func _pressed():
 
 [node name="EndGame" type="Node2D"]
 script = ExtResource( 2 )
+stream = ExtResource( 4 )
 
 [node name="Background" parent="." instance=ExtResource( 1 )]
 

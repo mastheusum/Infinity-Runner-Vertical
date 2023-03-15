@@ -4,6 +4,7 @@ const FILE_NAME = "user://higscores.save"
 
 var config = ConfigFile.new()
 var err = config.load(FILE_NAME)
+export var stream : AudioStream
 
 var new_player = false
 var player = {
@@ -22,6 +23,8 @@ func _input(event):
 		print_rank([])
 
 func _ready():
+	GlobalAudio.set_sound(stream)
+	
 	player["name"] = WorldEnv.player_name
 	player["score"] = WorldEnv.player_score
 	$CurrentPlayer.modulate = WorldEnv.player_color as Color

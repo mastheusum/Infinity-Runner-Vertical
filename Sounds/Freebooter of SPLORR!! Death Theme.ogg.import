@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Freebooter of SPLORR!! Death Theme.ogg-3121e2e180ffa11f867bacf660545e44.oggstr"
+
+[deps]
+
+source_file="res://Sounds/Freebooter of SPLORR!! Death Theme.ogg"
+dest_files=[ "res://.import/Freebooter of SPLORR!! Death Theme.ogg-3121e2e180ffa11f867bacf660545e44.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Script/DificultSelector.gd" type="Script" id=1]
 [ext_resource path="res://Sprite/Forms/triangulo2.png" type="Texture" id=2]
 [ext_resource path="res://Script/ButtonPlay.gd" type="Script" id=3]
 [ext_resource path="res://Instantiable/Background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Fonts/ShareTechMono-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Script/Menu.gd" type="Script" id=6]
+[ext_resource path="res://Sounds/Freebooter of SPLORR!! Main Theme.ogg" type="AudioStream" id=7]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -55,6 +57,8 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [node name="Menu" type="Node2D"]
+script = ExtResource( 6 )
+stream = ExtResource( 7 )
 
 [node name="Background" parent="." instance=ExtResource( 4 )]
 material = SubResource( 2 )

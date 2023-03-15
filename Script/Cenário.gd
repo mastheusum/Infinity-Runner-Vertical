@@ -3,11 +3,13 @@ extends Node2D
 var level_hit_cap = 3
 var level_hit = 1
 var spawn_time_base := 1.0
+export var stream : AudioStream
 
 func _set_wait_spawner():
 	$"Spawn Blocos".wait_time = spawn_time_base - WorldEnv.difficult_level * spawn_time_base / 5
 
 func _ready():
+	GlobalAudio.set_sound(stream, 0.5 + WorldEnv.difficult_level + 0.5)
 	randomize()
 	_set_wait_spawner()
 

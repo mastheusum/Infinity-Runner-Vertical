@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Instantiable/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Script/Cenário.gd" type="Script" id=2]
 [ext_resource path="res://Instantiable/triangulo.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Fonts/ShareTechMono-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Sounds/Freebooter of SPLORR!! Battle Theme.ogg" type="AudioStream" id=5]
 [ext_resource path="res://Script/ObjectPoller.gd" type="Script" id=7]
 
 [sub_resource type="Shader" id=1]
@@ -33,6 +34,7 @@ extents = Vector2( 250, 25 )
 
 [node name="Cenário" type="Node2D"]
 script = ExtResource( 2 )
+stream = ExtResource( 5 )
 
 [node name="Background" parent="." instance=ExtResource( 1 )]
 material = SubResource( 2 )
