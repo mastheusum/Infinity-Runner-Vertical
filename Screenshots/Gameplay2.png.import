@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Captura de tela de 2023-03-13 10-45-42.png-8945fdcd8b82f85a51a8ee1dd7ea0894.stex"
+path="res://.import/Gameplay2.png-9b23cdb800a8d9d3b1a3e6f0f900ba1d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Screenshots/Captura de tela de 2023-03-13 10-45-42.png"
-dest_files=[ "res://.import/Captura de tela de 2023-03-13 10-45-42.png-8945fdcd8b82f85a51a8ee1dd7ea0894.stex" ]
+source_file="res://Screenshots/Gameplay2.png"
+dest_files=[ "res://.import/Gameplay2.png-9b23cdb800a8d9d3b1a3e6f0f900ba1d.stex" ]
 
 [params]
 

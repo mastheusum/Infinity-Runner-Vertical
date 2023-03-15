@@ -1,41 +1,35 @@
 extends Node2D
 
-var rand = RandomNumberGenerator.new()
-var bloco = preload("res://Instantiable/Bloco.tscn")
-var triangulo = preload("res://Instantiable/triangulo.tscn")
+var level_hit_cap = 3
+var level_hit = 1
+var spawn_time_base := 1.0
 
-var dificuldade = 0.5
-var pointsToNextLevel = 10
+func _set_wait_spawner():
+	$"Spawn Blocos".wait_time = spawn_time_base - WorldEnv.difficult_level * spawn_time_base / 5
 
+func _ready():
+	randomize()
+	_set_wait_spawner()
 
 func _process(delta):
-	if $Player.points == pointsToNextLevel:
-		dificuldade -= (dificuldade / 10)
-		$"Spawn Blocos".wait_time -= ($"Spawn Blocos".wait_time / 10)
-		pointsToNextLevel += (pointsToNextLevel + 10)
-	
-	$GUI/Label.bbcode_text = "[center]Points: " + str($Player.points)
-	
-	
-func _on_Spawn_Blocos_timeout():
-	var newScales = rand.randf_range(0, 1 - dificuldade)
-	var complementScales = 1 - dificuldade - newScales
-	var cor = Color(rand.randf_range(0, 1),rand.randf_range(0, 1),rand.randf_range(0, 1), 1)
-	
-	var newBloco1 = bloco.instance()
-	newBloco1.modulate = cor
-	newBloco1.position.x = 500 * newScales / 2
-	newBloco1.position.y = -100
-	newBloco1.get_child(0).scale.x = newScales
-	newBloco1.get_child(1).scale.x = newScales
-	self.add_child(newBloco1)
-	
-	var newBloco2 = bloco.instance()
-	newBloco2.modulate = cor
-	newBloco2.position.x = 500 - (500 * complementScales / 2)	
-	newBloco2.position.y = -100
-	newBloco2.get_child(0).scale.x = complementScales
-	newBloco2.get_child(1).scale.x = complementScales
-	self.add_child(newBloco2)
-	
+	$GUI/Label.bbcode_text = "[center]Points: " + str(int($Player.points))
 
+func _on_Spawn_Blocos_timeout():
+	var cor = Color(rand_range(0, 1),rand_range(0, 1),rand_range(0, 1), 1)
+	$ObjectPoller.new_instance(randi() % 500 - 282, cor)
+
+func end_stage():
+	if level_hit < level_hit_cap:
+		print("-> Level++")
+		level_hit += 1
+		$"Spawn Blocos".stop()
+		$"Spawn Blocos".wait_time *= 0.9
+		$"Spawn Blocos".start()
+		$ObjectPoller.restart_queue()
+	else:
+		print(">>> Dificult++")
+		level_hit = 1
+		WorldEnv.difficult_level += 1
+		_set_wait_spawner()
+		$ObjectPoller.start_queue()
+	

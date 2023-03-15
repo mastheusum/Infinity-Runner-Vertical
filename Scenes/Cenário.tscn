@@ -1,18 +1,41 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Instantiable/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Script/Cenário.gd" type="Script" id=2]
 [ext_resource path="res://Instantiable/triangulo.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Fonts/ShareTechMono-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Script/ObjectPoller.gd" type="Script" id=7]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float scroll_speed = -0.2;
+
+void fragment(){
+    vec2 shifteduv = UV;
+    shifteduv.y += TIME * scroll_speed;
+    vec4 color = texture(TEXTURE, shifteduv);
+    COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/scroll_speed = -0.2
 
 [sub_resource type="DynamicFont" id=6]
 size = 40
 font_data = ExtResource( 4 )
 
+[sub_resource type="PhysicsMaterial" id=8]
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 250, 25 )
+
 [node name="Cenário" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Background" parent="." instance=ExtResource( 1 )]
+material = SubResource( 2 )
 
 [node name="GUI" type="MarginContainer" parent="."]
 margin_right = 500.0
@@ -27,13 +50,23 @@ bbcode_text = "[center]"
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 265.036, 578.096 )
+physics_material_override = SubResource( 8 )
 
 [node name="Spawn Blocos" type="Timer" parent="."]
-wait_time = 2.5
 autostart = true
 
 [node name="TimeCount" type="Timer" parent="."]
-autostart = true
+
+[node name="ObjectPoller" type="Node2D" parent="."]
+position = Vector2( 250, -50 )
+script = ExtResource( 7 )
+
+[node name="Area2D" type="Area2D" parent="ObjectPoller"]
+position = Vector2( 0, 1200 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObjectPoller/Area2D"]
+shape = SubResource( 7 )
 
 [connection signal="timeout" from="Spawn Blocos" to="." method="_on_Spawn_Blocos_timeout"]
 [connection signal="timeout" from="TimeCount" to="Player" method="_on_TimeCount_timeout"]
+[connection signal="body_entered" from="ObjectPoller/Area2D" to="ObjectPoller" method="_on_Area2D_body_entered"]

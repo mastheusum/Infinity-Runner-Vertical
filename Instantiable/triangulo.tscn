@@ -3,11 +3,11 @@
 [ext_resource path="res://Sprite/Forms/triangulo2.png" type="Texture" id=1]
 [ext_resource path="res://Script/triangulo.gd" type="Script" id=2]
 
-[sub_resource type="PhysicsMaterial" id=1]
+[sub_resource type="PhysicsMaterial" id=8]
 
 [node name="triangulo" type="RigidBody2D"]
 mass = 0.510204
-physics_material_override = SubResource( 1 )
+physics_material_override = SubResource( 8 )
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 2 )

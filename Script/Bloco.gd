@@ -1,11 +1,13 @@
-extends RigidBody2D
+extends KinematicBody2D
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+var base_move_speed = 250
+var dificult_scale = 0.2
+
 func _process(delta):
-	if position.y > get_parent().get_viewport().size.y:
-		get_parent().remove_child(self)
-	
-	var collision_info = get_colliding_bodies()
-	if len(collision_info) > 0:
-		print("bateu")
-	
+	move_and_slide( 
+		Vector2.DOWN * (
+			base_move_speed + 
+			base_move_speed * dificult_scale * WorldEnv.difficult_level
+		) 
+	)
+

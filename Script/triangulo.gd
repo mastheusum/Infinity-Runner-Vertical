@@ -1,15 +1,12 @@
 extends RigidBody2D
 
-var EndGame = preload("res://Scenes/EndGame.tscn")
-
-var player_name = ""
 var points = 0
 
 var direction = Vector2(0,0)
+var impulse_scale = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	player_name = WorldEnv.player_name
 	self.modulate = WorldEnv.player_color
 	self.gravity_scale = 0
 	self.weight = 2
@@ -17,7 +14,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _integrate_forces(state):
 	look_at(get_global_mouse_position())
-	self.apply_central_impulse(direction)
+	self.apply_central_impulse(direction * impulse_scale)
 	
 	var x_transform = state.get_transform()
 	if x_transform.origin.x > get_viewport_rect().size.x:
@@ -34,17 +31,17 @@ func _integrate_forces(state):
 func _physics_process(delta):
 	get_input()
 	if len(get_colliding_bodies()) > 0:
-		var end = EndGame.instance()
-		end.player["name"] = player_name
-		end.player["score"] = points
-		self.get_parent().get_parent().add_child(end)
-		self.get_parent().get_parent().remove_child(self.get_parent())
+		WorldEnv.player_score = points
+		get_tree().change_scene("res://Scenes/EndGame.tscn")
 		
 func get_input():
 	if Input.is_action_pressed("ui_direction"):
 		direction = Vector2(1,0).rotated(rotation)
 	else:
 		direction = Vector2.ZERO
-	
+
+func _process(delta):
+	points += delta * WorldEnv.difficult_level
+
 func _on_TimeCount_timeout():
 	points += 1

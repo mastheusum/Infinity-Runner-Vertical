@@ -8,5 +8,7 @@ func _pressed():
 	
 	WorldEnv.player_color = cor
 	WorldEnv.player_name = $"../PlayerName".text
+	WorldEnv.difficult_level = 1 + ($"../OptionButton" as OptionButton).selected
+	
 	get_tree().change_scene("res://Scenes/Cenário.tscn")
 

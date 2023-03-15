@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/space-wall.jpg-c656d84ef4732008545ad37d7f6fbfd0.stex"
+path="res://.import/Gameplay.png-c7f6513ab6e0ed60bcd3b0ac95bafbdf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprite/space-wall.jpg"
-dest_files=[ "res://.import/space-wall.jpg-c656d84ef4732008545ad37d7f6fbfd0.stex" ]
+source_file="res://Screenshots/Gameplay.png"
+dest_files=[ "res://.import/Gameplay.png-c7f6513ab6e0ed60bcd3b0ac95bafbdf.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
