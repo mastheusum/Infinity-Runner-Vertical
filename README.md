@@ -13,13 +13,13 @@ Font used: [Share Tech Mono](http://https://fonts.google.com/specimen/Share+Tech
 
 Screenshots:
 ##### Menu
-[![Menu](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/Captura%20de%20tela%20de%202023-03-13%2010-44-32.png "Menu")](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/Captura%20de%20tela%20de%202023-03-13%2010-44-32.png "Menu")
+[![Menu](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/Menu.png "Menu")](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/Menu.png "Menu")
 
-##### Highscores
-[![Highscores](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/Captura%20de%20tela%20de%202023-03-13%2010-14-55.png "Highscores")](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/Captura%20de%20tela%20de%202023-03-13%2010-14-55.png "Highscores")
+##### Highscores Scene
+[![Highscore Scene](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/HighscoresScene.png "Highscore Scene")](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/HighscoresScene.png "Highscore Scene")
 
 ##### Gameplay
-[![gameplay](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/Captura%20de%20tela%20de%202023-03-13%2010-15-45.png "gameplay")](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/Captura%20de%20tela%20de%202023-03-13%2010-15-45.png "gameplay")
+[![Gameplay](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/Gameplay2.png "Gameplay")](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/Gameplay2.png "Gameplay")
 
 ##### My Highscore
-[![My Highscore](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/Captura%20de%20tela%20de%202023-03-13%2010-15-48.png "My Highscore")](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/Captura%20de%20tela%20de%202023-03-13%2010-15-48.png "My Highscore")
+[![MyHighscores](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/Highscores2.png "MyHighscores")](https://github.com/mastheusum/Infinity-Runner-Vertical/blob/master/Screenshots/Highscores2.png "MyHighscores")
